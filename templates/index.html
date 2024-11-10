@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kanban Board</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+    <div class="container">
+        <button id="newTaskBtn" class="new-task-btn">Novo Serviço</button>
+        
+        <div class="kanban-board">
+            <div class="column">
+                <h2>Serviços</h2>
+                <div class="tasks" id="servicos"></div>
+            </div>
+            
+            <div class="column">
+                <h2>Serviços Iniciados</h2>
+                <div class="tasks" id="servicos-iniciados"></div>
+            </div>
+            
+            <div class="column">
+                <h2>Serviços Finalizados</h2>
+                <div class="tasks" id="servicos-finalizados"></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal -->
+    <div id="taskModal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h2>Novo Serviço</h2>
+            <form id="taskForm">
+                <select name="responsavel" required>
+                    <option value="">Selecione o responsável</option>
+                    <option value="João">João</option>
+                    <option value="Ana">Ana</option>
+                </select>
+                
+                <input type="text" name="cliente" placeholder="Nome do Cliente" required>
+                
+                <textarea name="descricao" placeholder="Descrição do Serviço" required></textarea>
+                
+                <div class="datetime-group">
+                    <input type="date" name="data" required>
+                    <input type="time" name="hora" required>
+                </div>
+                
+                <button type="submit">Salvar</button>
+            </form>
+        </div>
+    </div>
+
+    <script src="{{ url_for('static', filename='js/script.js') }}"></script>
+</body>
+</html>
